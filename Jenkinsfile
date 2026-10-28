@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -10,15 +11,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'docker build -t ecommerce-app .'
+                bat '"C:\\Users\\MISBAH\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t ecommerce-app .'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'docker stop ecommerce-app || exit /b 0'
-                bat 'docker rm ecommerce-app || exit /b 0'
-                bat 'docker run -d --name ecommerce-app -p 8081:80 ecommerce-app'
+                bat '"C:\\Users\\MISBAH\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" stop ecommerce-app || exit /b 0'
+                bat '"C:\\Users\\MISBAH\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" rm ecommerce-app || exit /b 0'
+                bat '"C:\\Users\\MISBAH\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run -d --name ecommerce-app -p 8081:80 ecommerce-app'
             }
         }
     }
